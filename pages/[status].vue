@@ -3,7 +3,9 @@ const {
   data: statuses,
   pending,
   error,
-} = await useFetch<Status[]>(() => `https://api.chringel.dev/statuses`);
+} = await useFetch<Status[]>(
+  () => `https://api.chringel.dev/statuses?orderBy=desc`
+);
 const typeLine = ref("");
 
 const status = statuses.value ? statuses.value[0] : defaultStatus;
