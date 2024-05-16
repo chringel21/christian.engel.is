@@ -46,6 +46,7 @@ useHead({
   <div class="info">
     <p>{{ status.relativeTime }}</p>
   </div>
+  <NuxtLink to="/new">New</NuxtLink>
 </template>
 
 <style>
