@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #527853;
-  --font-color: #f9e8d9;
-  --primary-color: #f7b787;
-  --secondary-color: #ee7214;
+  --bg-color: #00215e;
+  --font-color: #ffc55a;
+  --primary-color: #fc4100;
+  --secondary-color: #2c4e80;
   --system-ui: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
     "DejaVu Sans Mono", monospace, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -10,10 +10,10 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #f9e8d9;
-    --font-color: #527853;
-    --primary-color: #ee7214;
-    --secondary-color: #f7b787;
+    --bg-color: #ffc55a;
+    --font-color: #2c4e80;
+    --primary-color: #00215e;
+    --secondary-color: #fc4100;
   }
 }
 
@@ -31,6 +31,10 @@ main {
 
 h1 {
   font-weight: 400;
+}
+
+a {
+  color: var(--primary-color);
 }
 
 form {
