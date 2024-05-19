@@ -1,11 +1,10 @@
 <script setup lang="ts">
+const apiBaseUrl = useRuntimeConfig().public.API_BASE_URL;
 const {
   data: statuses,
   pending,
   error,
-} = await useFetch<Status[]>(
-  () => `https://api.chringel.dev/statuses?orderBy=desc`
-);
+} = await useFetch<Status[]>(() => `${apiBaseUrl}statuses?orderBy=desc`);
 const typeLine = ref("");
 
 const status = statuses.value ? statuses.value[0] : defaultStatus;
