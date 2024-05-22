@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="What is Christian Engel up to right now."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% set redirect %}
+    {{
+      statuses[0].content | slugify
+    }}
+    {% endset %}
+    <meta http-equiv="Refresh" content="0; URL={{ redirect }}" />
+    <title>Christian Engel is doing something!</title>
+    {% set css %} {% include "main.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
+  </head>
+  <body></body>
+</html>

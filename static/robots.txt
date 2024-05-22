@@ -1,8 +1,6 @@
 # www.robotstxt.org
 
 User-agent: *
-Disallow: /login
-Disallow: /new
 
 User-agent: CCBot
 Disallow: /
