@@ -13,7 +13,7 @@ export default async function () {
     );
     return statuses;
   } catch (e) {
-    console.log("Failed fetching status, returning default");
+    console.log("Failed fetching status, returning default", e);
     return [
       {
         content: "working on the status message API.",
