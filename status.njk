@@ -4,43 +4,17 @@ pagination:
   size: 1
   alias: status
 permalink: "{{ status.content | slugify }}/"
+layout: layout.njk
 ---
 
-<!DOCTYPE html>
-<html>
-  <head lang="en">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="What is Christian Engel up to right now."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      re="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{
-        status.emoji
-      }}</text></svg>"
-    />
-    <title>
-      Christian Engel is {{ status.contentAndEmoji | lowercaseFirstLetter }}
-    </title>
-    {% set css %} {% include "main.css" %} {% endset %}
-    <style>
-      {{ css | cssmin | safe }}
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>
-        Christian Engel is
-        <span class="status">{{
-          status.contentAndEmoji | lowercaseFirstLetter
-        }}</span>
-      </h1>
-      <div class="info">
-        <p>{{ status.relativeTime }}</p>
-      </div>
-    </main>
-  </body>
-</html>
+<main>
+  <h1>
+    Christian Engel is
+    <span class="status">{{
+      status.contentAndEmoji | lowercaseFirstLetter
+    }}</span>
+  </h1>
+  <div class="info">
+    <p>{{ status.relativeTime }}</p>
+  </div>
+</main>
