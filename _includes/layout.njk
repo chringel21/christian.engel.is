@@ -22,6 +22,26 @@
         status.emoji
       }}</text></svg>"
     />
+    <!-- OG -->
+    <meta property="og:title" content="christian.engel.is" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Christian Engel is {{
+        status.contentAndEmoji | lowercaseFirstLetter
+      }}"
+    />
+    <meta
+      property="og:description"
+      content="What is Christian Engel up to right now."
+    />
+    <meta
+      property="og:image"
+      content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fchristian.engel.is%2F{{
+        redirect
+      }}/opengraph/"
+    />
+    <meta property="og:url" content="https://christian.engel.is/" />
     <title>
       Christian Engel is {{ status.contentAndEmoji | lowercaseFirstLetter }}
     </title>
