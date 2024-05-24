@@ -21,6 +21,14 @@ export default function (eleventyConfig) {
     // If not an HTML output, return content as-is
     return content;
   });
+
+  eleventyConfig.addShortcode("ogImageSource", function ({ url }) {
+    const fullUrl = "https://christian.engel.is" + url;
+    return `https://v1.screenshot.11ty.dev/${encodeURIComponent(
+      fullUrl
+    )}/opengraph/`;
+  });
+
   eleventyConfig.addFilter("lowercaseFirstLetter", function (string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
   });
