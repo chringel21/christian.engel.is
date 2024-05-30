@@ -30,10 +30,11 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("lowercaseFirstLetter", function (string) {
+    if (!string) return "";
     return string.charAt(0).toLowerCase() + string.slice(1);
   });
 
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
-}
+};
