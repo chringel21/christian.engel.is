@@ -1,7 +1,15 @@
 const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
 
-export default function (eleventyConfig) {
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "serverless",
+    functionsDir: "./netlify/functions/",
+    redirects: "netlify-toml-functions",
+  });
+
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./static/robots.txt": "/robots.txt",

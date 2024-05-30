@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% set css %} {% include "main.css" %} {% endset %}
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
+  </head>
+  <body>
+    <form action="/preview/">
+      <!--<form action="/.netlify/functions/serverless">-->
+      <!--<form action="/.netlify/functions/new">-->
+      <label for="content">Content</label>
+      <input type="text" id="content" name="content" />
+      <label for="emoji">Emoji</label>
+      <input type="text" id="emoji" name="emoji" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
