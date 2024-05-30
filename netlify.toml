@@ -1,0 +1,19 @@
+[build]
+publish = "_site"
+command = "npm run build"
+
+[[redirects]]
+from = "/preview/"
+to = "/.netlify/functions/serverless"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "serverless"
+
+[[redirects]]
+from = "/login/"
+to = "/new/"
+status = 302
+force = true
+
+  [redirects.conditions]
+  Cookie = [ "auth-accessToken" ]

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ELEVENTY_ENV=development npx @11ty/eleventy --serve",
+    "dev": "ELEVENTY_ENV=development netlify dev",
     "build": "ELEVENTY_ENV=production npx @11ty/eleventy"
   },
   "keywords": [],
@@ -15,10 +15,15 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0-alpha.10",
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-fetch": "^4.0.1",
+    "@netlify/functions": "^2.7.0",
+    "@types/cookie": "^0.6.0",
     "clean-css": "^5.3.3",
+    "cookie": "^0.6.0",
     "dotenv": "^16.4.5",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "netlify-cli": "^17.23.8",
+    "node-fetch": "^3.3.2",
   }
 }
