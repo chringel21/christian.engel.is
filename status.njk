@@ -3,10 +3,13 @@ pagination:
   data: statuses
   size: 1
   alias: status
-permalink: "{{ status.content | slugify }}/"
+permalink:
+  serverless: "/preview/"
+  build: "/{{ status.content | slugify }}/"
 layout: layout.njk
 ---
 
+{% if newStatus %} {% set status = newStatus %} {% endif %}
 <main>
   <h1>
     Christian Engel is
@@ -15,6 +18,10 @@ layout: layout.njk
     }}</span>
   </h1>
   <div class="info">
-    <p>{{ status.relativeTime }}</p>
+    <p>{{ status.relativeTime }} | <a href="/login">New</a></p>
   </div>
+  {% if newStatus %}
+  <p>Build triggered. Content should be up in 1-2 minutes.</p>
+  <pre>{{ newStatus | dump(2) }}</pre>
+  {% endif %}
 </main>
