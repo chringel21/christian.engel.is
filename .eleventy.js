@@ -1,5 +1,5 @@
-import CleanCSS from "clean-css";
-import htmlmin from "html-minifier";
+const CleanCSS = require("clean-css");
+const htmlmin = require("html-minifier");
 
 export default function (eleventyConfig) {
   // Passthrough

@@ -1,10 +1,10 @@
-import EleventyFetch from "@11ty/eleventy-fetch";
-import dotenv from "dotenv";
+const EleventyFetch = require("@11ty/eleventy-fetch");
+const dotenv = require("dotenv");
 dotenv.config();
 
 const API_BASE_URL = process.env.API_BASE_URL;
 
-export default async function () {
+module.exports = async function () {
   try {
     const statuses = await EleventyFetch(
       `${API_BASE_URL}statuses?orderBy=desc&take=1`,
@@ -25,4 +25,4 @@ export default async function () {
       },
     ];
   }
-}
+};
