@@ -45,6 +45,15 @@ form {
   flex-direction: column;
 }
 
+form input {
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
 .status {
   color: var(--primary-color);
   font-weight: 700;
