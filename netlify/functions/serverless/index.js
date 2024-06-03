@@ -26,39 +26,38 @@ async function handler(event) {
     emoji: "🔧",
   };
 
-  const { content, emoji } = event.queryStringParameters;
+  const { content, emoji, github } = event.queryStringParameters;
+
+  const apiResponse = await fetch(`${API_BASE_URL}statuses`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ content, emoji, github }),
+  });
+
+  if (apiResponse.status === 200) {
+    newStatus = await apiResponse.json();
+    // trigger netlify build
+    await fetch(
+      "https://api.netlify.com/build_hooks/665846ccc001c3d9eee43a92",
+      {
+        method: "POST",
+        body: {},
+      }
+    );
+  }
+  let elev = new EleventyServerless("serverless", {
+    path: new URL(event.rawUrl).pathname,
+    query: event.multiValueQueryStringParameters || event.queryStringParameters,
+    functionsDir: "./netlify/functions/",
+    config: function (eleventyConfig) {
+      eleventyConfig.addGlobalData("newStatus", newStatus);
+    },
+  });
 
   try {
-    const apiResponse = await fetch(`${API_BASE_URL}statuses`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ content, emoji }),
-    });
-
-    if (apiResponse.status === 200) {
-      newStatus = await apiResponse.json();
-      // trigger netlify build
-      await fetch(
-        "https://api.netlify.com/build_hooks/665846ccc001c3d9eee43a92",
-        {
-          method: "POST",
-          body: {},
-        }
-      );
-    }
-
-    let elev = new EleventyServerless("serverless", {
-      path: new URL(event.rawUrl).pathname,
-      query:
-        event.multiValueQueryStringParameters || event.queryStringParameters,
-      functionsDir: "./netlify/functions/",
-      config: function (eleventyConfig) {
-        eleventyConfig.addGlobalData("newStatus", newStatus);
-      },
-    });
     let [page] = await elev.getOutput();
 
     // If you want some of the data cascade available in `page.data`, use `eleventyConfig.dataFilterSelectors`.
