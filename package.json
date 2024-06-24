@@ -8,7 +8,7 @@
     "clean-11ty": "rm -rf _site && rm -rf .cache",
     "clean-netlify": "cd netlify/functions/serverless && ls -A | grep -xv 'index.js' | xargs rm -rf && cd ../../../",
     "clean": "npm run clean-11ty && npm run clean-netlify",
-    "build": "npm run clean-netlify && ELEVENTY_ENV=production npx @11ty/eleventy"
+    "build": "npm run clean && ELEVENTY_ENV=production npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "Christian Engel",
