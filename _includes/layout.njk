@@ -28,7 +28,7 @@
     <meta
       property="og:site_name"
       content="Christian Engel is {{
-        status.contentAndEmoji | lowercaseFirstLetter
+        status.contentAndEmoji | lowerCaseFirstLetter
       }}"
     />
     <meta
@@ -49,7 +49,7 @@
     <meta name="twitter:image" content="{% ogImageSource page %}/" />
 
     <title>
-      Christian Engel is {{ status.contentAndEmoji | lowercaseFirstLetter }}
+      Christian Engel is {{ status.contentAndEmoji | lowerCaseFirstLetter }}
     </title>
     {% set css %} {% include "main.css" %} {% endset %}
     <style>

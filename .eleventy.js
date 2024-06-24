@@ -1,5 +1,6 @@
 const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
+const { lowerCaseFirstLetter } = require("./_includes/functions");
 
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
@@ -37,10 +38,7 @@ module.exports = function (eleventyConfig) {
     )}/opengraph/`;
   });
 
-  eleventyConfig.addFilter("lowercaseFirstLetter", function (string) {
-    if (!string) return "";
-    return string.charAt(0).toLowerCase() + string.slice(1);
-  });
+  eleventyConfig.addFilter("lowerCaseFirstLetter", lowerCaseFirstLetter);
 
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
