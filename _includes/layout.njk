@@ -23,7 +23,10 @@
       }}</text></svg>"
     />
     <!-- OG -->
-    <meta property="og:title" content="christian.engel.is" />
+    <meta
+      property="og:title"
+      content="christian.engel.is/{{ status.content | slugify }}"
+    />
     <meta property="og:type" content="website" />
     <meta
       property="og:site_name"
@@ -35,18 +38,21 @@
       property="og:description"
       content="What is Christian Engel up to right now."
     />
-    <meta property="og:image" content="{% ogImageSource statuses[0] %}" />
+    <meta property="og:image" content="{% ogImageSource status %}" />
     <meta property="og:url" content="https://christian.engel.is/" />
     <!-- Twitter/X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="christian.engel.is" />
     <meta property="twitter:url" content="https://christian.engel.is" />
-    <meta name="twitter:title" content="christian.engel.is" />
+    <meta
+      name="twitter:title"
+      content="christian.engel.is/{{ status.content | slugify }}"
+    />
     <meta
       name="twitter:description"
       content="What is Christian Engel up to right now."
     />
-    <meta name="twitter:image" content="{% ogImageSource statuses[0] %}/" />
+    <meta name="twitter:image" content="{% ogImageSource status %}" />
 
     <title>
       Christian Engel is {{ status.contentAndEmoji | lowerCaseFirstLetter }}
