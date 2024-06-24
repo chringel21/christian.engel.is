@@ -35,7 +35,7 @@
       property="og:description"
       content="What is Christian Engel up to right now."
     />
-    <meta property="og:image" content="{% ogImageSource page %}" />
+    <meta property="og:image" content="{% ogImageSource statuses[0] %}" />
     <meta property="og:url" content="https://christian.engel.is/" />
     <!-- Twitter/X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +46,7 @@
       name="twitter:description"
       content="What is Christian Engel up to right now."
     />
-    <meta name="twitter:image" content="{% ogImageSource page %}/" />
+    <meta name="twitter:image" content="{% ogImageSource statuses[0] %}/" />
 
     <title>
       Christian Engel is {{ status.contentAndEmoji | lowerCaseFirstLetter }}

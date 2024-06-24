@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./static/robots.txt": "/robots.txt",
+    "./static/fonts/": "/fonts",
   });
 
   eleventyConfig.addTransform("htmlmin", function (content) {
@@ -31,11 +32,15 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  eleventyConfig.addShortcode("ogImageSource", function ({ url }) {
-    const fullUrl = "https://christian.engel.is" + url;
-    return `https://v1.screenshot.11ty.dev/${encodeURIComponent(
-      fullUrl
-    )}/opengraph/`;
+  eleventyConfig.addShortcode("ogImageSource", function ({ content, emoji }) {
+    const baseUrl =
+      process.env.ELEVENTY_ENV === "development"
+        ? "http://localhost:8888"
+        : "https://christian.engel.is";
+    const ogUrl = new URL(baseUrl + "/og-image");
+    ogUrl.searchParams.append("content", lowerCaseFirstLetter(content));
+    ogUrl.searchParams.append("emoji", emoji);
+    return ogUrl.toString();
   });
 
   eleventyConfig.addFilter("lowerCaseFirstLetter", lowerCaseFirstLetter);
