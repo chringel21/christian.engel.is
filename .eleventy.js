@@ -1,6 +1,6 @@
 const CleanCSS = require("clean-css");
 const htmlmin = require("html-minifier");
-const { lowerCaseFirstLetter } = require("./_includes/functions");
+const { lowerCaseFirstLetter } = require("./utils/functions");
 
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 
