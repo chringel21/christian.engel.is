@@ -40,13 +40,11 @@ async function handler(event) {
   if (apiResponse.status === 200) {
     newStatus = await apiResponse.json();
     // trigger netlify build
-    await fetch(
-      "https://api.netlify.com/build_hooks/665846ccc001c3d9eee43a92",
-      {
-        method: "POST",
-        body: {},
-      }
-    );
+    const hookId = process.env.NETLIFY_BUILD_HOOK_ID;
+    await fetch("https://api.netlify.com/build_hooks/" + hookId, {
+      method: "POST",
+      body: {},
+    });
   }
   let elev = new EleventyServerless("serverless", {
     path: new URL(event.rawUrl).pathname,
